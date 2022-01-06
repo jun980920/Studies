@@ -1,0 +1,25 @@
+#합병정렬 구현해보기
+def merge(list1, list2):
+    i=0
+    s=0
+    newlist=[]
+    while True:
+        if i==len(list1):
+            return newlist+list2[s:]
+        elif s==len(list2):
+            return newlist+list1[i:]
+        if list1[i]<list2[s]:
+            newlist.append(list1[i])
+            i+=1
+        else:
+            newlist.append(list2[s])
+            s+=1
+
+def merge_sort(my_list):
+    len_list=len(my_list)
+    middle=len_list//2
+    if len_list==1 or len_list==0:
+        return my_list
+    else:
+        return merge(merge_sort(my_list[:middle]), merge_sort(my_list[middle:]))
+
