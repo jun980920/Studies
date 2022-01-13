@@ -1,0 +1,18 @@
+def min_coin_count(value, coin_list):
+    coin_list.sort(reverse=True)
+    coins=0
+    for i in coin_list:
+        while True:
+            if value//i>0:
+                coins+=1
+                value-=i
+            else:
+                break
+    return coins
+
+# 테스트
+default_coin_list = [100, 500, 10, 50]
+print(min_coin_count(1440, default_coin_list))
+print(min_coin_count(1700, default_coin_list))
+print(min_coin_count(23520, default_coin_list))
+print(min_coin_count(32590, default_coin_list))
